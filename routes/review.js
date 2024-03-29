@@ -1,5 +1,5 @@
 const express = require("express");
-const router = express.Router();
+const router = express.Router({ mergeParams : true });
 const wrapAsync = require("../utils/wrapAsync.js");
 const { reviewSchema} = require("../schema.js");
 const ExpressError = require("../utils/ExpressError.js");
@@ -27,7 +27,7 @@ const validateReview = (req, res, next) => {
 
    await newReview.save();
    await listing.save();
- //  res.redirect(`/listings/${listing._id}`);
+  res.redirect(`/listings/${listing._id}`);
  
  })
  );

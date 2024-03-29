@@ -28,6 +28,7 @@ router.get("/new", (req,res) => {
   res.render("listings/new.ejs");
 });
 
+
 // show Route
 router.get("/:id", wrapAsync(async (req, res) => {
  let {id} = req.params;
@@ -36,7 +37,7 @@ router.get("/:id", wrapAsync(async (req, res) => {
 }));
 
 //Create Route
-router.post("/listings", validateListing, wrapAsync(async (req, res,next) => {
+router.post("/", validateListing, wrapAsync(async (req, res,next) => {
 const newListing = new Listing(req.body.listing);
 await newListing.save();
 res.redirect("/listings");
@@ -55,7 +56,8 @@ res.redirect("/listings");
    let { id } = req.params;
    await Listing.findByIdAndUpdate(id, {...req.body.listing });
    res.redirect(`/listings/${id}`);
- }));
+ })
+ );
 
  //Delete Route
  router.delete("/:id",  wrapAsync(async (req, res) => {
