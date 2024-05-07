@@ -19,6 +19,13 @@
     padding: 0.5rem 3rem 0.5rem 3rem;
     font-size: 1rem;
   }
+     .home {
+      padding-right:0.5rem;
+     }
+
+    .Explore  {
+   font-size:35px;
+    }
 </style>
 
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
@@ -29,7 +36,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link" href="/listings">Explore</a>
+          <a class="nav-link Explore" href="/listings">Explore</a>
         </div>
        <div class="navbar-nav ms-auto">
         <form class="d-flex" role="search">
@@ -39,7 +46,8 @@
        </div>
 
         <div class="navbar-nav ms-auto">
-          <a class="nav-link" href="/listings/new">Airbnb your home</a>
+          <a class="nav-link home" href="/listings/new">Mention your Home</a>
+          
           <% if(!currUser) { %>
           <a class="nav-link" href="/signup"><b>Sign up</b></a>
           <a class="nav-link" href="/login"><b>Log in</b> </a>
