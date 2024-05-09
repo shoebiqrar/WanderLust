@@ -64,6 +64,7 @@ const sessionOptions = {
     expires: Date.now() + 7*24*60*60*1000,
     maxAge: 7*24*60*60*1000,
     httpOnly: true,
+    
   },
 };
 
@@ -110,6 +111,6 @@ app.use((err, req,res,next)=> {
     //  res.status(statusCode).send(message);
     });
 
-app.listen(3000, ()=> {
+app.listen(8080, ()=> {
     console.log("server is listening to port 8080");
 });
