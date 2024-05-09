@@ -16,7 +16,7 @@ const  flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
-   
+
 
 const listingsRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
@@ -46,7 +46,7 @@ app.use(express.static(path.join(__dirname, "/public")));
 const store = MongoStore.create({
   mongoUrl: dbUrl,
   crypto: {
-     secret: process.env.CLOUD_API_SECRET,
+     secret: "process.env.SECRET",
   },
   touchAfter: 24 * 3600,
 });
@@ -57,7 +57,7 @@ store.on("error", () => {
 
 const sessionOptions = {
   store,
-  secret: process.env.CLOUD_API_SECRET,
+  secret: "process.env.SECRET",
   resave: false,
   saveUninitialized: true,
   cookie: {
@@ -110,6 +110,6 @@ app.use((err, req,res,next)=> {
     //  res.status(statusCode).send(message);
     });
 
-app.listen(8080, ()=> {
+app.listen(3000, ()=> {
     console.log("server is listening to port 8080");
 });
